@@ -28,6 +28,7 @@
     </style>
 </head>
 <body>
+    <!-- Full Login Page -->
     <section class="min-h-screen max-w-max flex items-center mx-auto">
         <fieldset class="fieldset bg-base-200 border-base-300 rounded-box w-md border p-10 shadow">
             <div class="text-center mb-5">
@@ -37,14 +38,14 @@
             </div>
 
             <label class="label font-semibold text-[16px] text-black ">User Name</label>
-            <input type="text" class="input w-full" placeholder="Enter your Username " />
+            <input id="input-username" type="text" class="input w-full" placeholder="Enter your Username " />
             <p class="text-[#4A00FF] text-[14px]">Default: admin</p>
             
             <label class="label font-semibold text-[16px] text-black mt-2">Password</label>
-            <input type="password" class="input w-full" placeholder="Enter Password" />
+            <input id="input-password" type="password" class="input w-full" placeholder="Enter Password" />
             <p class="text-[#4A00FF] text-[14px]">Default: admin123</p>
 
-            <button class="btn btn-primary rounded-xl mt-4">Sign In</button>
+            <button id="signin-btn" class="btn btn-primary rounded-xl mt-4">Sign In</button>
             
             <div class="divider">OR</div>
 
@@ -57,5 +58,8 @@
 
         </fieldset>
     </section>
+
+    <!-- JS Script Connection -->
+     <script src="script/login.js"></script>
 </body>
 </html>
