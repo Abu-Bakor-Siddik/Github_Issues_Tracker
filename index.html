@@ -4,8 +4,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Github Issue Tracker | Login</title>
+
+    <!-- Logo -->
+    <link rel="shortcut icon" href="./assets/github-logo.png" type="image/x-icon">
+
+    <!-- DaisyUI + Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> 
+
+    <!-- Google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Stylesheet -->
+    <style>
+        *{
+            font-family: "Geist", sans-serif;
+        }
+    </style>
 </head>
 <body>
-    
+    <section class="min-h-screen max-w-max flex items-center mx-auto">
+        <fieldset class="fieldset bg-base-200 border-base-300 rounded-box w-md border p-10 shadow">
+            <div class="text-center mb-5">
+                <img src="./assets/github-logo.png" alt="" class="mx-auto">
+                <h2 class="font-semibold text-[24px]">GitHub Issues Tracker</h2>
+                <p class="text-[16px] text-[#64748B]">Sign in to manage your issues</p>
+            </div>
+
+            <label class="label font-semibold text-[16px] text-black ">User Name</label>
+            <input type="text" class="input w-full" placeholder="Enter your Username " />
+            <p class="text-[#4A00FF] text-[14px]">Default: admin</p>
+            
+            <label class="label font-semibold text-[16px] text-black mt-2">Password</label>
+            <input type="password" class="input w-full" placeholder="Enter Password" />
+            <p class="text-[#4A00FF] text-[14px]">Default: admin123</p>
+
+            <button class="btn btn-primary rounded-xl mt-4">Sign In</button>
+            
+            <div class="divider">OR</div>
+
+            <p class="text-[16px] text-[#64748B] text-center">Demo Credentials:</p>
+
+            <div class="text-center bg-gray-100 rounded-xl p-5">
+                <p class="text-[16px]"><span class="font-semibold text-[16px]">Username: </span>admin</p>
+                <p class="text-[16px]"><span class="font-semibold text-[16px]">Password:</span> admin123</p>
+            </div>
+
+        </fieldset>
+    </section>
 </body>
 </html>
