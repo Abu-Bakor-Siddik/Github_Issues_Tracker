@@ -4,8 +4,77 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Github Issues tracker | Home</title>
+
+    <!-- Logo -->
+    <link rel="shortcut icon" href="./assets/github-logo.png" type="image/x-icon">
+
+    <!-- DaisyUI + Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> 
+
+    <!-- Google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Stylesheet -->
+    <style>
+        *{
+            font-family: "Geist", sans-serif;
+        }
+    </style>
+
 </head>
 <body>
-    <h2>Home</h2>
+    <!-- Nav Section -->
+    <Header>
+        <div class="navbar bg-base-100 shadow-sm px-12">
+            <div class="flex-1">
+                <div class="flex text-center items-center">
+                    <img src="./assets/github-logo.png" alt="" width="36px" height="37px">
+                    <a class="btn btn-ghost text-xl">GitHub Issues Tracker</a>
+                </div>
+            </div>
+            <div class="flex gap-2">
+                <input type="text" placeholder="Search issues" class="input input-bordered w-24 md:w-auto" />
+                <button class="btn btn-primary">Search</button>
+            </div>
+        </div>
+    </Header>
+    
+    <!-- Filter Section -->
+    <section class="min-h-screen w-11/12 my-10 mx-auto bg-amber-200">
+        <div class="bg-base-200 p-6 rounded-2xl">
+            <button class="btn btn-outline btn-primary rounded-xl px-10">All</button>
+            <button class="btn btn-outline btn-primary rounded-xl px-10">Open</button>
+            <button class="btn btn-outline btn-primary rounded-xl px-10">Closed</button>
+        </div>
+        <section class="mt-6">
+            <!-- Stats Section -->
+            <div class="bg-base-200 flex justify-between py-5 px-10 items-center rounded-2xl">
+                <div class="flex gap-2">
+                    <img src="./assets/Group 1.png" alt="" width="30px" height="10px">
+                    <div>
+                        <h2 class="font-semibold text-[24px]">50 Issues</h2>
+                        <p class="text-[16px] text-[#64748B]">Track and manage your project issues</p>
+                    </div>
+                </div>
+                <div class="flex gap-4">
+                    <div class="flex gap-2">
+                        <div><i class="fa-solid fa-circle" style="color: rgb(19, 171, 47);"></i></div>
+                        <p>Open</p>
+                    </div>
+                    <div class="flex gap-2">
+                        <div><i class="fa-solid fa-circle" style="color: rgb(177, 151, 252);"></i></div>
+                        <p>Closed</p>
+                    </div>
+                </div>
+            </div>
+            
+        </section>
+    </section>
 </body>
 </html>
