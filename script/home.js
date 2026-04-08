@@ -126,6 +126,7 @@ document.getElementById("btn-search").addEventListener('click', ()=>{
         const filterWords = allWords.filter(issues =>
          issues.title.toLowerCase().includes(searchValue) || issues.description.toLowerCase().includes(searchValue)
         );
+        document.getElementById("statsIssues").innerText=filterWords.length;
         displayIssues(filterWords);
     });
 })
