@@ -46,15 +46,15 @@
     </Header>
     
     <!-- Filter Section -->
-    <section class="min-h-screen w-11/12 my-10 mx-auto bg-amber-200">
-        <div class="bg-base-200 p-6 rounded-2xl">
-            <button class="btn btn-outline btn-primary rounded-xl px-10">All</button>
-            <button class="btn btn-outline btn-primary rounded-xl px-10">Open</button>
-            <button class="btn btn-outline btn-primary rounded-xl px-10">Closed</button>
+    <section class="min-h-screen w-11/12 my-10 mx-auto">
+        <div class="bg-base-200 shadow p-6 rounded-2xl">
+            <button onclick="allIssuesShow()" class="btn btn-outline btn-primary rounded-xl px-10">All</button>
+            <button onclick="openIssuesShow()" class="btn btn-outline btn-primary rounded-xl px-10">Open</button>
+            <button onclick="closedIssuesShow()" class="btn btn-outline btn-primary rounded-xl px-10">Closed</button>
         </div>
         <section class="mt-6">
             <!-- Stats Section -->
-            <div class="bg-base-200 flex justify-between py-5 px-10 items-center rounded-2xl">
+            <div class="bg-base-200 shadow flex justify-between py-5 px-10 items-center rounded-2xl">
                 <div class="flex gap-2">
                     <img src="./assets/Group 1.png" alt="" width="30px" height="10px">
                     <div>
@@ -73,8 +73,15 @@
                     </div>
                 </div>
             </div>
-            
+            <section>
+                <div id="issue-container" class="mt-10">
+                   
+                </div>
+            </section>
         </section>
     </section>
+
+    <!--Js Script  -->
+    <script src="./script/home.js"></script>
 </body>
 </html>
