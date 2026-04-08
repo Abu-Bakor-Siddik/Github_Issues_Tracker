@@ -2,6 +2,17 @@ console.log("home.js script connecting");
 /* Creating an empty array to store all the Fetching API Data */
 let allIssues = [];
 
+/* Spinner Loader */
+const manageSpinner=(status) => {
+    if(status == true){
+        document.getElementById("spinner").classList.remove('hidden');
+        document.getElementById("issue-container").classList.add('hidden');
+    }else{
+        document.getElementById("issue-container").classList.remove('hidden');        
+        document.getElementById("spinner").classList.add('hidden');
+    }
+};
+
 /* Badges color define */
 const getLabelColor = (label) => {
     if (label === "bug") return "badge-error";
@@ -13,6 +24,7 @@ const getLabelColor = (label) => {
 
 /* Fetching all Data */
 const loadIssues = () => {
+    manageSpinner(true);
     fetch('https://phi-lab-server.vercel.app/api/v1/lab/issues')
     .then(res => res.json())
     .then(json => {
@@ -20,6 +32,8 @@ const loadIssues = () => {
         displayIssues(allIssues);
 
         allIssuesShow('all');
+
+        manageSpinner(false);
     });
 
 }
@@ -67,8 +81,6 @@ const displayIssues = (issues) =>{
          });
         issueContainer.appendChild(div);
     })
-
-    //To open modal when click the card
     
 };
 
@@ -149,31 +161,40 @@ const setActiveButton = (status) =>{
 
 /* All Issue Show Button */
 const allIssuesShow=(status)=>{
+    manageSpinner(true);
     document.getElementById("statsIssues").innerText=allIssues.length;
     setActiveButton(status);
     displayIssues(allIssues);
+    manageSpinner(false);
 }
 
 /* Open issue Show Button */
 const openIssuesShow=(status)=>{
+    manageSpinner(true);
     const openIssues = allIssues.filter(issue => issue.status === 'open')
     document.getElementById("statsIssues").innerText=openIssues.length;
     setActiveButton(status);
     displayIssues(openIssues);
+    manageSpinner(false);
 }
 
 /* Closed issue Show Button */
 const closedIssuesShow=(status)=>{
+    manageSpinner(true);
     const closedIssues = allIssues.filter(issue => issue.status === 'closed')
     document.getElementById("statsIssues").innerText=closedIssues.length;
     setActiveButton(status);
     displayIssues(closedIssues);
+    manageSpinner(false);
 }
 
 loadIssues();
 
 /* Search Issues */
 document.getElementById("btn-search").addEventListener('click', ()=>{
+
+    manageSpinner(true);
+
     removeActiveBtn();
     const input = document.getElementById("input-search");
     const searchValue = input.value.trim().toLowerCase();
@@ -189,5 +210,7 @@ document.getElementById("btn-search").addEventListener('click', ()=>{
         );
         document.getElementById("statsIssues").innerText=filterWords.length;
         displayIssues(filterWords);
+
+        manageSpinner(false);
     });
 })

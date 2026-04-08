@@ -35,7 +35,7 @@
 <body>
     <!-- Nav Section -->
     <Header>
-        <div class="navbar bg-base-100 shadow-sm px-12">
+        <div class="navbar bg-base-100 shadow-sm px-12 grid justify-center gap-1 md:flex">
             <div class="flex-1">
                 <div class="flex text-center items-center">
                     <img src="./assets/github-logo.png" alt="" width="36px" height="37px">
@@ -51,7 +51,7 @@
     
     <!-- Filter Section -->
     <section class="min-h-screen w-11/12 my-10 mx-auto">
-        <div class="bg-base-200 shadow p-6 rounded-2xl">
+        <div class="bg-base-200 shadow p-6 rounded-2xl grid grid-cols-2 gap-2 md:flex md:gap-2 ">
             <button id="btn-all" onclick="allIssuesShow('all')" class="btn btn-outline btn-primary rounded-xl px-10  ">All</button>
             <button id="btn-open" onclick="openIssuesShow('open')" class="btn btn-outline btn-primary rounded-xl px-10 ">Open</button>
             <button id="btn-closed" onclick="closedIssuesShow('closed')" class="btn btn-outline btn-primary rounded-xl px-10 ">Closed</button>
@@ -77,6 +77,13 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Spinner Section -->
+            <section id="spinner" class="flex justify-center items-center py-10 hidden">
+                <span class="loading loading-dots loading-xl"></span>
+            </section>
+
+            <!-- Issue Container Section -->
             <section>
                 <div id="issue-container" class="mt-10 grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-10">
                    
