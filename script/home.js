@@ -62,12 +62,17 @@ const displayIssues = (issues) =>{
         issueContainer.appendChild(div);
     })
 }
-
-/* Highlight Active Buttons */
-const setActiveButton = (status) =>{
+/* Remove Active button */
+const removeActiveBtn = () =>{
     document.getElementById("btn-all").classList.remove("active");
     document.getElementById("btn-open").classList.remove("active");
     document.getElementById("btn-closed").classList.remove("active");
+}
+
+/* Highlight Active Buttons */
+const setActiveButton = (status) =>{
+
+    removeActiveBtn();
 
     if(status === 'all'){
         document.getElementById('btn-all').classList.add('active');
@@ -104,6 +109,23 @@ const closedIssuesShow=(status)=>{
     displayIssues(closedIssues);
 }
 
-
-
 loadIssues();
+
+/* Search Issues */
+document.getElementById("btn-search").addEventListener('click', ()=>{
+    removeActiveBtn();
+    const input = document.getElementById("input-search");
+    const searchValue = input.value.trim().toLowerCase();
+    // console.log(searchValue);
+
+    fetch('https://phi-lab-server.vercel.app/api/v1/lab/issues')
+    .then(res => res.json())
+    .then(data => {
+        const allWords = data.data;
+        
+        const filterWords = allWords.filter(issues =>
+         issues.title.toLowerCase().includes(searchValue) || issues.description.toLowerCase().includes(searchValue)
+        );
+        displayIssues(filterWords);
+    });
+})
