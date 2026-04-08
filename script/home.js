@@ -59,9 +59,71 @@ const displayIssues = (issues) =>{
                 </div>
             </div>
         `;
+
+        //To open modal when click the card
+        div.querySelector('.card')
+            .addEventListener('click', () => {
+                 openModal(issue);
+         });
         issueContainer.appendChild(div);
     })
+
+    //To open modal when click the card
+    
+};
+
+/* Open Modal */
+const openModal = (issue) =>{
+    const modalContent = document.getElementById("modal-content");
+    modalContent.innerHTML=`
+        <div class="modal-box">
+
+            <h3 class="text-lg font-bold">${issue.title}</h3>
+
+            <p class="text-gray-500 mt-5">
+                <span class="badge ${issue.status === 'open' ? 'badge-success' : 'badge-secondary'}">
+                    ${issue.status}
+                </span>
+                . Opened by ${issue.author !== ""? issue.author : "None" } . ${issue.updatedAt}
+            </p>
+
+            <div class="flex flex-wrap gap-2 mt-5">
+                ${issue.labels.map(label => `
+                    <span class="badge badge-soft ${getLabelColor(label)}">
+                        ${label.toUpperCase()}
+                    </span>
+                `).join('')}
+            </div>
+
+            <p class="text-gray-500 mt-5">${issue.description}</p>
+
+            <div class="bg-gray-200 p-3 mt-5 text-black flex justify-between rounded-xl">
+                <div class="mb-2">
+                    <p class="text-gray-500">Assignee:</p>
+                    
+                    <p>${issue.assignee !== "" ? issue.assignee : "Not Assigned Yet" }</p>
+                </div>
+
+                <div>
+                    <p class="text-gray-500">Priority:</p>
+                    <span ${issue.priority === 'high'? 'class="bg-red-300 text-black px-3 rounded-xl"': issue.priority === 'low'? 'class="bg-gray-400 text-black px-3 rounded-xl"': 'class="bg-yellow-400 text-black px-3 rounded-xl"'}>
+                        ${issue.priority}
+                    </span>
+                </div>
+            </div>
+
+            <div class="modal-action">
+                <form method="dialog">
+                    <button class="btn btn-primary">Close</button>
+                </form>
+            </div>
+
+        </div>
+    `;
+
+    document.getElementById("my-modal").showModal();
 }
+
 /* Remove Active button */
 const removeActiveBtn = () =>{
     document.getElementById("btn-all").classList.remove("active");
@@ -84,7 +146,6 @@ const setActiveButton = (status) =>{
         document.getElementById('btn-closed').classList.add('active');
     }
 }
-
 
 /* All Issue Show Button */
 const allIssuesShow=(status)=>{
