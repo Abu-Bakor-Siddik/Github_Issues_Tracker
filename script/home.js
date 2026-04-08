@@ -1,8 +1,8 @@
 console.log("home.js script connecting");
-
+/* Creating an empty array to store all the Fetching API Data */
 let allIssues = [];
 
-/* Badges */
+/* Badges color define */
 const getLabelColor = (label) => {
     if (label === "bug") return "badge-error";
     if (label === "help wanted") return "badge-warning";
@@ -19,7 +19,9 @@ const loadIssues = () => {
         allIssues = json.data;
         displayIssues(allIssues);
 
+        allIssuesShow('all');
     });
+
 }
 
 /* Display Issues */
@@ -61,22 +63,47 @@ const displayIssues = (issues) =>{
     })
 }
 
+/* Highlight Active Buttons */
+const setActiveButton = (status) =>{
+    document.getElementById("btn-all").classList.remove("active");
+    document.getElementById("btn-open").classList.remove("active");
+    document.getElementById("btn-closed").classList.remove("active");
+
+    if(status === 'all'){
+        document.getElementById('btn-all').classList.add('active');
+    }
+    else if(status === 'open'){
+        document.getElementById('btn-open').classList.add('active');
+    }
+    else {
+        document.getElementById('btn-closed').classList.add('active');
+    }
+}
+
 
 /* All Issue Show Button */
-const allIssuesShow=()=>{
+const allIssuesShow=(status)=>{
+    document.getElementById("statsIssues").innerText=allIssues.length;
+    setActiveButton(status);
     displayIssues(allIssues);
 }
 
 /* Open issue Show Button */
-const openIssuesShow=()=>{
+const openIssuesShow=(status)=>{
     const openIssues = allIssues.filter(issue => issue.status === 'open')
+    document.getElementById("statsIssues").innerText=openIssues.length;
+    setActiveButton(status);
     displayIssues(openIssues);
 }
 
 /* Closed issue Show Button */
-const closedIssuesShow=()=>{
+const closedIssuesShow=(status)=>{
     const closedIssues = allIssues.filter(issue => issue.status === 'closed')
+    document.getElementById("statsIssues").innerText=closedIssues.length;
+    setActiveButton(status);
     displayIssues(closedIssues);
 }
+
+
 
 loadIssues();
